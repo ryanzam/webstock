@@ -1,6 +1,7 @@
 ﻿using BlazorWebStock.API.Controllers;
 using BlazorWebStock.API.Repositories;
 using BlazorWebStockLibrary.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
@@ -36,6 +37,17 @@ namespace BlazorWebStock.Tests.Controllers
             var result = await CreateController().GetProducts();
 
             Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
+        public async Task GetProducts_Returns500_WhenRepositoryThrows()
+        {
+            _repository.Setup(r => r.GetProducts()).ThrowsAsync(new InvalidOperationException("db down"));
+
+            var result = await CreateController().GetProducts();
+
+            var error = Assert.IsType<ObjectResult>(result.Result);
+            Assert.Equal(StatusCodes.Status500InternalServerError, error.StatusCode);
         }
     }
 }
