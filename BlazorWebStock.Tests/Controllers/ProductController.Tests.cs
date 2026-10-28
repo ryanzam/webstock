@@ -49,5 +49,17 @@ namespace BlazorWebStock.Tests.Controllers
             var error = Assert.IsType<ObjectResult>(result.Result);
             Assert.Equal(StatusCodes.Status500InternalServerError, error.StatusCode);
         }
+
+        [Fact]
+        public async Task GetProduct_ReturnsOk_WhenProductExists()
+        {
+            var product = new Product { Id = "1", ProductName = "Camera" };
+            _repository.Setup(r => r.GetProduct("1")).ReturnsAsync(product);
+
+            var result = await CreateController().GetProduct("1");
+
+            var ok = Assert.IsType<OkObjectResult>(result.Result);
+            Assert.Same(product, ok.Value);
+        }
     }
 }
