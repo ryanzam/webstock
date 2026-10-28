@@ -71,5 +71,16 @@ namespace BlazorWebStock.Tests.Controllers
 
             Assert.IsType<NotFoundResult>(result.Result);
         }
+
+        [Fact]
+        public async Task GetProduct_Returns500_WhenRepositoryThrows()
+        {
+            _repository.Setup(r => r.GetProduct(It.IsAny<string>())).ThrowsAsync(new InvalidOperationException("db down"));
+
+            var result = await CreateController().GetProduct("1");
+
+            var error = Assert.IsType<ObjectResult>(result.Result);
+            Assert.Equal(StatusCodes.Status500InternalServerError, error.StatusCode);
+        }
     }
 }
