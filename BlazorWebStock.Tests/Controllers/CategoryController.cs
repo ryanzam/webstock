@@ -27,5 +27,15 @@ namespace BlazorWebStock.Tests.Controllers
             var ok = Assert.IsType<OkObjectResult>(result.Result);
             Assert.Same(categories, ok.Value);
         }
+
+        [Fact]
+        public async Task GetCategories_ReturnsNotFound_WhenRepositoryReturnsNull()
+        {
+            _repository.Setup(r => r.GetCategories()).ReturnsAsync((List<Category>)null);
+
+            var result = await CreateController().GetCategories();
+
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
     }
 }
