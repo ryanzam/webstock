@@ -12,6 +12,8 @@ A full-stack **web shop** built with **Blazor WebAssembly**, an **ASP.NET Core W
 <!-- TODO: add screenshots or a short GIF here, e.g.
 ![Product catalog](docs/screenshots/catalog.png)
 -->
+<img width="400" height="250" alt="swagg1" src="https://github.com/user-attachments/assets/abb0ba0b-0499-40f5-bbed-03fb0dcaf318" />
+<img width="400" height="250" alt="webstock1" src="https://github.com/user-attachments/assets/ae9a9129-1dbc-4fb9-a6bf-34bf70390856" />
 
 ---
 
