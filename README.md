@@ -1,5 +1,7 @@
 # 🛒 WebStock
 
+<img src="https://github.com/ryanzam/webstock/actions/workflows/ci.yml/badge.svg" />
+
 A full-stack **web shop** built with **Blazor WebAssembly**, an **ASP.NET Core Web API** and **MongoDB**. Customers can browse products by category, view product details, manage a shopping basket and check out with PayPal (sandbox).
 
 ![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)
