@@ -2,7 +2,7 @@
 
 A full-stack **web shop** built with **Blazor WebAssembly**, an **ASP.NET Core Web API** and **MongoDB**. Customers can browse products by category, view product details, manage a shopping basket and check out with PayPal (sandbox).
 
-![.NET 6](https://img.shields.io/badge/.NET-6.0-512BD4?logo=dotnet&logoColor=white)
+![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white)
 ![Blazor WebAssembly](https://img.shields.io/badge/Blazor-WebAssembly-512BD4?logo=blazor&logoColor=white)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-Web%20API-512BD4)
