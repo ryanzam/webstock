@@ -61,7 +61,9 @@ BlazorWebStock/
 ├── BlazorWebStock.API/          # Web API
 │   ├── Controllers/             # Product, Category, Basket
 │   └── Repositories/            # Data access (MongoDB)
-└── BlazorWebStockLibrary/       # Shared models + DbConnection
+├── BlazorWebStockLibrary/       # Shared models + DbConnection
+├── BlazorWebStock.Tests/        # xUnit tests (controllers, helpers)
+└── .github/workflows/ci.yml     # Build + test pipeline
 ```
 
 ## 🔌 API endpoints
@@ -82,15 +84,15 @@ Swagger UI is available at `https://localhost:7217/swagger` when running in Deve
 
 ### Prerequisites
 
-- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - [MongoDB](https://www.mongodb.com/try/download/community) running locally (or a MongoDB Atlas connection string)
 - A trusted HTTPS dev certificate: `dotnet dev-certs https --trust`
 
 ### 1. Clone
 
 ```bash
-git clone https://github.com/ryanzam/BlazorWebStock.git
-cd BlazorWebStock
+git clone https://github.com/ryanzam/webstock.git
+cd webstock
 ```
 
 ### 2. Configure the MongoDB connection
@@ -159,16 +161,3 @@ The checkout page uses the PayPal JavaScript SDK in **sandbox mode** (`client-id
 | Database | MongoDB with the official `MongoDB.Driver` (2.16) |
 | Payments | PayPal JS SDK (sandbox) |
 | Patterns | Repository pattern, dependency injection, service layer, shared class library |
-
-## ⚠️ Known limitations & roadmap
-
-This project is an in-progress learning and portfolio build. Known gaps and planned improvements:
-
-- [ ] **Authentication and user accounts.** The user and basket IDs are currently hard-coded in the client (marked `TODO` in the code). Planned: ASP.NET Core Identity or OAuth 2.0 / JWT.
-- [ ] **Basket logic.** Fix the duplicate-item check when adding to the basket, support quantity updates, and use the selected quantity instead of the product's stock count.
-- [ ] **Order persistence.** Save orders and confirm PayPal payments on the server.
-- [ ] **Product management** (admin create/update/delete, currently commented out in the controller).
-- [ ] **Validation and error handling.** Return consistent problem details from the API.
-- [ ] **Tests and CI.** Unit tests (xUnit) for repositories and helpers, plus a GitHub Actions workflow for build and test.
-- [ ] **Docker Compose** for one-command setup of API, client and MongoDB.
-- [ ] **Upgrade to .NET 8 (LTS).** .NET 6 is out of support.
